@@ -3,18 +3,12 @@ package com.example.mqtt_jms;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.eclipse.paho.android.service.MqttAndroidClient;
@@ -188,17 +182,15 @@ public class ChattingActivity extends AppCompatActivity implements MqttCallback 
 
     @Override
     public void messageArrived(String topic, MqttMessage message) throws Exception {
-        //Toast.makeText(this, "message arrived", Toast.LENGTH_SHORT).show();
-        // format message in html
         String currentTime = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
 
 
         if (message.toString().contains(Build.DEVICE)) {
             String message1 = message.toString().substring(message.toString().indexOf(" "));
-            messageList.add(new UserMessage(name, message1.toString(), currentTime));
+            messageList.add(new UserMessage(name, message1, currentTime));
         } else {
             String message1 = message.toString().substring(message.toString().indexOf(" "));
-            messageList.add(new UserMessage("", message1.toString(), currentTime));
+            messageList.add(new UserMessage("", message1, currentTime));
         }
         mMessageAdapter.notifyDataSetChanged();
 
