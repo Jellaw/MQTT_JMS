@@ -59,22 +59,7 @@ public class ChattingActivity extends AppCompatActivity implements MqttCallback 
         chatbox=findViewById(R.id.layout_chatbox);
         chattext=findViewById(R.id.edittext_chatbox);
 
-        //set chatbox match parent khi typing
-        chattext.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
         //=======RecycleView=====================================================
         mMessageRecycler = (RecyclerView) findViewById(R.id.messenger_view);
         LinearLayoutManager manager = new LinearLayoutManager(this);
