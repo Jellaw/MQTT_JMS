@@ -43,8 +43,6 @@ public class ChattingActivity extends AppCompatActivity implements MqttCallback 
     // user name for the chat
     private static final String USER_NAME = Build.DEVICE;
     String name;
-    ImageView avaUser;
-    TextView nameUser;
     EditText chattext;
 
     // global types
@@ -52,8 +50,7 @@ public class ChattingActivity extends AppCompatActivity implements MqttCallback 
     private EditText textMessage;
     private String message;
     Handler mHandler;
-    Intent i;
-    ImageView back_btn, camera, location;
+    ImageView camera, location;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,12 +59,6 @@ public class ChattingActivity extends AppCompatActivity implements MqttCallback 
         chatbox=findViewById(R.id.layout_chatbox);
         chattext=findViewById(R.id.edittext_chatbox);
 
-        back_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
         //set chatbox match parent khi typing
         chattext.addTextChangedListener(new TextWatcher() {
             @Override
@@ -77,14 +68,6 @@ public class ChattingActivity extends AppCompatActivity implements MqttCallback 
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                camera.setVisibility(View.INVISIBLE);
-                location.setVisibility(View.INVISIBLE);
-                LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT,
-                        LinearLayout.LayoutParams.MATCH_PARENT,
-                        1.0f
-                );
-                chatbox.setLayoutParams(param);
             }
 
             @Override
@@ -99,10 +82,6 @@ public class ChattingActivity extends AppCompatActivity implements MqttCallback 
         mMessageRecycler.setHasFixedSize(true);
         mMessageAdapter = new MessageListAdapter(this, messageList);
         mMessageRecycler.setAdapter(mMessageAdapter);
-        //=====================switch info from fragment==========================
-        i = getIntent();
-        avaUser.setImageResource(i.getIntExtra("img_ava",0));
-        nameUser.setText(i.getStringExtra("nameUser"));
 
         //=========================================================================
         // get text elements to re-use them
