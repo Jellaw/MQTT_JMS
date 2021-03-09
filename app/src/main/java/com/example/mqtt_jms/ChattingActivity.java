@@ -50,7 +50,7 @@ public class ChattingActivity extends AppCompatActivity implements MqttCallback 
     private EditText textMessage;
     private String message;
     Handler mHandler;
-    ImageView camera, location;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

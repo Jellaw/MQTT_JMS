@@ -51,16 +51,18 @@
 
             <Button
                 android:id="@+id/button_chatbox_send"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="64dp"
                 android:layout_height="48dp"
                 android:layout_gravity="bottom"
-                android:background="?attr/selectableItemBackground"
+                android:backgroundTint="#00FFFFFF"
                 android:clickable="true"
                 android:gravity="center"
                 android:onClick="publish"
                 android:text="send"
                 android:textColor="#EA5C8C"
-                android:textSize="10sp" />
+                android:textSize="10sp"
+                app:iconTint="#00FFFFFF" />
 
         </LinearLayout>
     </LinearLayout>
